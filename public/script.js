@@ -1,4 +1,4 @@
-const API_URL = "http://10.0.0.206:3000";
+const API_URL = window.location.origin;
 
 async function createCard() {
   const customerName =

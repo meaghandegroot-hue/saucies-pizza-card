@@ -1,10 +1,18 @@
-const API_URL = "http://10.0.0.206:3000";
+const API_URL = window.location.origin;
 
 async function findCard() {
-  const cardId = document.getElementById("cardId").value;
+  const cardId = document.getElementById("cardId").value.trim();
 
   const response = await fetch(`${API_URL}/api/cards/${cardId}`);
   const card = await response.json();
+
+  if (!response.ok) {
+
+    alert(card.message || card.error || "Could not find card");
+
+    return;
+
+  }
 
   displayCard(card);
 }
@@ -13,6 +21,14 @@ async function redeemSlice(id) {
   const response = await fetch(`${API_URL}/api/cards/${id}/redeem`, {
     method: "PATCH"
   });
+
+  if (!response.ok) {
+
+    alert(card.message || card.error || "Could not redeem slice");
+
+    return;
+
+  }
 
   const card = await response.json();
   displayCard(card);

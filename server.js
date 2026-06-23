@@ -92,7 +92,7 @@ app.get("/api/cards/:id/qrcode", async (req, res) => {
     }
 
     const customerPageUrl =
-      `http://10.0.0.206:3000/customer.html?id=${card._id}`;
+  `${process.env.BASE_URL}/customer.html?id=${card._id}`;
 
     QRCode.toDataURL(customerPageUrl, (err, url) => {
       if (err) {

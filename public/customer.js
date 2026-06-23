@@ -1,4 +1,4 @@
-const API_URL = "http://10.0.0.206:3000";
+const API_URL = window.location.origin;
 
 const params = new URLSearchParams(window.location.search);
 const cardId = params.get("id");
