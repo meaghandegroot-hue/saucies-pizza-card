@@ -21,7 +21,27 @@ app.get("/", (req, res) => {
   res.send("Pizza Card Server Running");
 });
 
-app.post("/api/cards", async (req, res) => {
+function requireAdmin(req, res, next) {
+  const key = req.header("x-staff-key");
+
+  if (!process.env.ADMIN_KEY || key !== process.env.ADMIN_KEY) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  next();
+}
+
+function requireStaff(req, res, next) {
+  const key = req.header("x-staff-key");
+
+  if (key && (key === process.env.ADMIN_KEY || key === process.env.STAFF_KEY)) {
+    return next();
+  }
+
+  return res.status(401).json({ message: "Unauthorized" });
+}
+
+app.post("/api/cards", requireAdmin, async (req, res) => {
   try {
 
     const newCard = new PizzaCard({
@@ -51,7 +71,7 @@ app.get("/api/cards/:id", async (req, res) => {
   }
 });
 
-app.patch("/api/cards/:id/redeem", async (req, res) => {
+app.patch("/api/cards/:id/redeem", requireStaff, async (req, res) => {
   try {
 
     const card = await PizzaCard.findById(req.params.id);

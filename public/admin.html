@@ -17,10 +17,13 @@
     <h2>Find Card</h2>
     <input id="cardId" placeholder="Paste card ID">
     <button onclick="findCard()">Find Card</button>
+    <button onclick="startScan()">Scan QR Code</button>
+    <div id="qr-reader" style="width: 300px;"></div>
   </section>
 
   <section id="cardDisplay"></section>
 
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script src="admin.js"></script>
 </body>
 </html>
