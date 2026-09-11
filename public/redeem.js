@@ -11,6 +11,12 @@ function getStaffKey() {
   return key;
 }
 
+const cardIdInput = document.getElementById("cardId");
+cardIdInput.focus();
+cardIdInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") findCard();
+});
+
 async function findCard() {
   const cardId = document.getElementById("cardId").value.trim();
 
@@ -48,6 +54,8 @@ async function redeemSlice(id) {
   }
 
   displayCard(card);
+  cardIdInput.value = "";
+  cardIdInput.focus();
 }
 
 function escapeHtml(str) {

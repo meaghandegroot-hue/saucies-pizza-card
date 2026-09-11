@@ -22,3 +22,46 @@ button {
   padding: 10px;
   cursor: pointer;
 }
+
+.progress-track {
+  background: #f3e2cf;
+  border-radius: 999px;
+  height: 24px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #e8622c, #f2a13c);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.low-slices-banner {
+  background: #fff1cc;
+  border: 1px solid #f2c14e;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f3e2cf;
+  color: #555;
+}
+
+.history-list li:last-child {
+  border-bottom: none;
+}
+
+.history-empty {
+  color: #888;
+  font-style: italic;
+}

@@ -9,7 +9,11 @@
 
   <section>
     <h2>Create Card</h2>
-    <input id="customerName" placeholder="Customer name">
+    <input id="customerName" placeholder="Customer name"><br><br>
+    <input id="groupName" placeholder="Group name (optional, for shared cards)"><br><br>
+    <input id="referredBy" placeholder="Referred by (friend's card ID, optional)"><br><br>
+    <label>Birthday (optional): <input type="date" id="birthday"></label><br><br>
+    <label><input type="checkbox" id="bonusSlice"> Bonus slice (11 instead of 10)</label>
     <button onclick="createCard()">Create Pizza Card</button>
   </section>
 
@@ -22,6 +26,12 @@
   </section>
 
   <section id="cardDisplay"></section>
+
+  <section>
+    <h2>Stats</h2>
+    <button onclick="loadStats()">Refresh Stats</button>
+    <div id="statsDisplay"></div>
+  </section>
 
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script src="admin.js"></script>
