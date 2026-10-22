@@ -54,6 +54,11 @@ async function redeemSlice(id) {
   }
 
   displayCard(card);
+
+  if (card.reward) {
+    alert(`🎉 Mystery reward! This customer just won: ${card.reward}`);
+  }
+
   cardIdInput.value = "";
   cardIdInput.focus();
 }

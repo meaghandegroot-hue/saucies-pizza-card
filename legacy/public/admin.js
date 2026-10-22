@@ -130,6 +130,10 @@ async function redeemSlice(id) {
 
   const card = await response.json();
   displayCard(card);
+
+  if (card.reward) {
+    alert(`🎉 Mystery reward! This customer just won: ${card.reward}`);
+  }
 }
 
 function displayCard(card) {
